@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# hadamikmichal.pl
 
-## Getting Started
+Personal portfolio of Michał Hadamik, Software Engineer.
+Next.js 16 (App Router, Cache Components) · TypeScript · Tailwind CSS 4 · Framer Motion · Lucide.
 
-First, run the development server:
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # local development (TODO markers visible)
+npm run lint
+npx tsc --noEmit
+npm run build   # fully static output, deploys to Vercel as-is
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All content is typed data in `data/`. No component changes are needed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| What | Where |
+| --- | --- |
+| Name, headline, intro, SEO description | `data/site.ts` → `site` |
+| Availability indicator | `data/site.ts` → `availability` (`available` / `limited` / `unavailable`) |
+| GitHub / LinkedIn | `data/site.ts` → `socials` (set `href`; `null` hides the link in production) |
+| CV download | put the file at `public/cv/michal-hadamik-cv.pdf`, then set `cv.available = true` |
+| Projects | `data/projects.ts` (`featured` = large card, `needsReview` = neutral placeholder copy) |
+| Experience | `data/experience.ts` |
+| Tech stack | `data/tech-stack.ts` |
+| Sitemap date | `app/sitemap.ts` → `LAST_MODIFIED` |
 
-## Learn More
+Items awaiting input show dashed **TODO** markers in `npm run dev` only. They never appear in production.
 
-To learn more about Next.js, take a look at the following resources:
+## Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/            layout (metadata, fonts, JSON-LD), page, not-found, sitemap, robots, OG image, icon
+components/
+  layout/       Navbar (mobile menu, active section), Footer
+  sections/     Hero, About, TechStack, ProjectGrid, ProjectCard, ExperienceTimeline, Contact
+  ui/           Container, SectionHeader, Reveal, MotionProvider, AvailabilityBadge, CopyEmailButton, DevNote, BrandIcons
+data/           typed content + types
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Design tokens (colors, fonts, easing) live in `app/globals.css` under `@theme`.
