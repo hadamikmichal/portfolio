@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens
+ * -----------------------------------------------------------------
+ * Surfaces: ink (page) → ink-2 (sections) → card
+ * Text:     fg (primary) / fg-muted (secondary)
+ * Accent:   electric lime — interactive elements, active states, small labels
+ */
+@theme {
+  --color-ink: #0b0d0f;
+  --color-ink-2: #121519;
+  --color-card: #171b20;
+  --color-line: #292f35;
+  --color-line-strong: #3a4148;
+
+  --color-fg: #f2f2ee;
+  --color-fg-muted: #92999f;
+
+  --color-accent: #c5f36b;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Section rhythm */
+  --spacing-section: clamp(5rem, 11vw, 9rem);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-ink);
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* No body background: <html> carries it, so the fixed column guides (z -10) stay visible */
+  body {
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  /* Anchored sections clear the fixed navigation */
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Small uppercase mono label for section indices and metadata */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-fg-muted);
+  }
+
+  .display {
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.96;
+    text-wrap: balance;
+  }
+
+  .heading {
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  /* Underline that grows from the left */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 450ms var(--ease-out-quint);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
