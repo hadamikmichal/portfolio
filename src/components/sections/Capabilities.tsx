@@ -18,9 +18,7 @@ export function Capabilities() {
     <section id="capabilities" aria-labelledby="capabilities-title" className="bg-ink-2 py-section">
       <Container>
         <SectionHeading
-          index="03"
-          label="Capabilities"
-          title="Engineering capabilities."
+          title="What I do"
           id="capabilities-title"
           intro="Areas I have worked in professionally — from interfaces and APIs to content platforms and system architecture."
         />

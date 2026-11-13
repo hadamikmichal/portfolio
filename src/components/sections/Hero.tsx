@@ -1,37 +1,30 @@
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { profile } from "@/data/profile";
-import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { MonogramPanel } from "@/components/ui/Monogram";
 import { Reveal } from "@/components/ui/Reveal";
-import { pad } from "@/lib/utils";
 
 export function Hero() {
-  const [lineOne, lineTwo] = profile.headline;
-
   return (
-    <section id="top" aria-labelledby="hero-title" className="relative flex min-h-[100svh] flex-col pt-16">
-      <Container className="flex flex-1 flex-col pt-8 sm:pt-14 lg:pt-12">
+    <section id="top" aria-labelledby="hero-title" className="relative pt-16 pb-16 sm:pb-24">
+      <Container className="pt-8 sm:pt-14 lg:pt-12">
         {/* Label row */}
         <Reveal onMount className="flex items-center justify-between border-t border-line pt-5">
           <p className="label flex items-center gap-2.5 text-fg">
             <span aria-hidden="true" className="size-1.5 bg-accent" />
             {profile.heroLabel}
           </p>
-          <p className="label hidden sm:block">Portfolio — {profile.domain}</p>
+          <p className="label hidden sm:block">{profile.domain}</p>
         </Reveal>
 
         {/* Headline */}
         <h1 id="hero-title" className="display mt-12 text-[clamp(2.6rem,6.5vw,6.25rem)] sm:mt-16 lg:mt-14">
-          <span className="sr-only">
-            {profile.name}, {profile.title}.{" "}
-          </span>
           <Reveal onMount as="span" delay={0.1} y={28} className="block">
-            {lineOne}
+            {profile.name}
           </Reveal>
           <Reveal onMount as="span" delay={0.2} y={28} className="block text-fg-muted">
-            {lineTwo}
+            {profile.title}
           </Reveal>
         </h1>
 
@@ -67,24 +60,6 @@ export function Hero() {
             <MonogramPanel />
           </div>
         </div>
-
-        {/* Bridge into Selected Work — the spacer keeps a minimum gap and pushes it to the bottom */}
-        <div aria-hidden="true" className="min-h-14 flex-1" />
-        <a
-          href="#work"
-          className="group flex items-center justify-between border-t border-line pt-5 pb-6 transition-colors hover:border-accent sm:pb-8"
-        >
-          <span className="label flex items-center gap-3 text-fg">
-            <ArrowDown
-              className="size-3.5 text-accent transition-transform duration-300 group-hover:translate-y-0.5"
-              aria-hidden="true"
-            />
-            Selected work
-          </span>
-          <span className="label tabular-nums">
-            {pad(1)} — {pad(projects.length)}
-          </span>
-        </a>
       </Container>
     </section>
   );

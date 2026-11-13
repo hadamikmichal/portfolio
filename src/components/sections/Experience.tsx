@@ -35,7 +35,7 @@ export function Experience() {
   return (
     <section id="experience" aria-labelledby="experience-title" className="py-section">
       <Container>
-        <SectionHeading index="05" label="Experience" title="Professional experience." id="experience-title" />
+        <SectionHeading title="Experience" id="experience-title" />
 
         <ol className="mt-14 lg:mt-20">
           {experience.map((entry, i) => (

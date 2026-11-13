@@ -16,7 +16,12 @@ export function Navbar() {
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      // Above the first section nothing is "current" (covers instant jumps back to the top)
+      const first = document.getElementById(navigation[0].href.slice(1));
+      if (first && first.getBoundingClientRect().top > window.innerHeight / 2) setActive(null);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -32,7 +37,7 @@ export function Navbar() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) setActive(`#${entry.target.id}`);
-          else if (entry.target.id === "work" && entry.boundingClientRect.top > 0) setActive(null);
+          else if (entry.target === sections[0] && entry.boundingClientRect.top > 0) setActive(null);
         }
       },
       { rootMargin: "-45% 0px -50% 0px" },
@@ -65,7 +70,12 @@ export function Navbar() {
           aria-label={`${profile.name} — back to top`}
           onClick={() => open && close(false)}
         >
-          <MonogramMark />
+          <span className="flex items-baseline gap-3">
+            <MonogramMark />
+            <span aria-hidden="true" className="text-sm font-medium text-fg">
+              {profile.name}
+            </span>
+          </span>
         </a>
 
         <nav aria-label="Primary" className="hidden md:block">

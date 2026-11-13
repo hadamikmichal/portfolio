@@ -17,14 +17,8 @@ export function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="bg-ink-2 py-section">
       <Container>
-        <div className="grid grid-cols-12 gap-x-5 border-t border-line pt-5 sm:gap-x-8">
-          <p className="label col-span-12 mb-10 flex items-center gap-2.5 md:col-span-3 md:mb-0">
-            <span className="text-accent">06</span>
-            <span aria-hidden="true" className="h-px w-5 bg-line-strong" />
-            <span>Contact</span>
-          </p>
-
-          <div className="col-span-12 md:col-span-9">
+        <div className="border-t border-line pt-8 sm:pt-10">
+          <div>
             <Reveal>
               <h2 id="contact-title" className="display text-[clamp(2.75rem,8vw,7.5rem)]">
                 {contact.heading}
