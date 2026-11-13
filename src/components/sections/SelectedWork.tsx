@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/utils";
 
 /**
- * Editorial layout: two featured projects in mirrored rows,
+ * Editorial layout: featured projects in alternating mirrored rows,
  * then the rest on a 6-column grid (3 narrow cards, then 2 wide).
  */
 export function SelectedWork() {
