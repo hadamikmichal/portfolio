@@ -14,7 +14,7 @@ export function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="py-section">
       <Container>
-        <SectionHeading index="02" label="About" title={about.heading} id="about-title" />
+        <SectionHeading title={about.heading} id="about-title" />
 
         <div className="mt-14 grid grid-cols-12 gap-x-5 gap-y-14 sm:gap-x-8 lg:mt-20">
           <Reveal className="col-span-12 md:order-2 md:col-span-9">

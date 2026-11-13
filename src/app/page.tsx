@@ -14,10 +14,10 @@ export default function Home() {
       <Navbar />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
-        <SelectedWork />
         <About />
-        <Capabilities />
         <TechStack />
+        <Capabilities />
+        <SelectedWork />
         <Experience />
         <Contact />
       </main>

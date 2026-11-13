@@ -33,8 +33,8 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", fontSize: 88, lineHeight: 1.02, letterSpacing: -3.5 }}>
-          <span>{profile.headline[0]}</span>
-          <span style={{ color: c.muted }}>{profile.headline[1]}</span>
+          <span>{profile.name}</span>
+          <span style={{ color: c.muted }}>{profile.title}</span>
         </div>
 
         <div
@@ -47,7 +47,7 @@ export default function OpengraphImage() {
             color: c.muted,
           }}
         >
-          <span style={{ color: c.fg }}>{profile.name}</span>
+          <span style={{ color: c.fg }}>Portfolio</span>
           <span>Angular · TypeScript · Node.js · WordPress</span>
           <span style={{ color: c.accent }}>{profile.domain}</span>
         </div>

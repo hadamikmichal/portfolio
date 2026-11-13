@@ -9,9 +9,7 @@ export function TechStack() {
     <section id="stack" aria-labelledby="stack-title" className="py-section">
       <Container>
         <SectionHeading
-          index="04"
-          label="Stack"
-          title="Technology stack."
+          title="Skills & tech stack"
           id="stack-title"
           intro={
             <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1">

@@ -18,9 +18,7 @@ export function SelectedWork() {
     <section id="work" aria-labelledby="work-title" className="py-section">
       <Container>
         <SectionHeading
-          index="01"
-          label="Work"
-          title="Selected work."
+          title="Selected work"
           id="work-title"
           intro="Enterprise applications, content platforms, analytics and e-commerce — a selection of projects I have contributed to."
         />

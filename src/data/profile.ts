@@ -12,10 +12,9 @@ export const profile = {
   /** First commercial role (see data/experience.ts) */
   careerStart: 2018,
 
-  heroLabel: "Software Engineer · Poland",
-  headline: ["Building digital products.", "Solving real problems."],
+  heroLabel: "Portfolio · Poland",
   intro:
-    "I'm a Software Engineer working across frontend engineering, fullstack development and custom web solutions. I combine technical problem-solving with a practical approach to building reliable digital products.",
+    "I work across frontend engineering, fullstack development and custom web solutions. I combine technical problem-solving with a practical approach to building reliable digital products.",
   coreStack: ["Angular", "TypeScript", "RxJS", "Node.js", "NestJS", "PHP", "WordPress"],
 } as const;
 
@@ -38,14 +37,15 @@ export const socialLinks = {
 };
 
 export const navigation: NavItem[] = [
-  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#stack" },
+  { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const about = {
-  heading: "A little about how I work.",
+  heading: "About me",
   lead: "I'm a Software Engineer with commercial experience building and developing web applications, business platforms and custom websites.",
   paragraphs: [
     "My background combines frontend engineering, fullstack development and WordPress engineering.",
