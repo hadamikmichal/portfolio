@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Geist, Geist_Mono } from "next/font/google";
 import { MotionProvider } from "@/components/ui/MotionProvider";
 import { baseMetadata, jsonLd } from "@/lib/metadata";
@@ -15,6 +16,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin", "latin-ext"],
 });
 
+const GTM_ID = "GTM-M6KC24PQ";
+
 export const metadata: Metadata = baseMetadata;
 
 export const viewport: Viewport = {
@@ -29,6 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
+      <GoogleTagManager gtmId={GTM_ID} />
       <body className="min-h-dvh">
         <a
           href="#main"
