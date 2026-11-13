@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Geist, Geist_Mono } from "next/font/google";
 import { MotionProvider } from "@/components/ui/MotionProvider";
 import { baseMetadata, jsonLd } from "@/lib/metadata";
@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 const GTM_ID = "GTM-M6KC24PQ";
+const GA_ID = "G-G41KE7MQ4Y";
 
 export const metadata: Metadata = baseMetadata;
 
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
       </body>
+      <GoogleAnalytics gaId={GA_ID} />
     </html>
   );
 }
